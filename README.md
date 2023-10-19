@@ -51,14 +51,6 @@ To set up the backend part of this application:
 4. After the configuration is complete, run `npm start` to start the Node.js server for the backend.
 5. The backend server should be accessible at `http://localhost:5000`.
 
-## Documentation
-
-For further documentation on usage and API functions, please refer to the documentation in the `documentation` directory.
-
-## Contribute
-
-We welcome contributions from other developers. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
-
 ## License
 
 This application is licensed under the [MIT License](LICENSE).
