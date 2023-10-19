@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./TodoList.css"; // File CSS custom
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -25,14 +26,6 @@ const TodoList = () => {
       console.log(error);
     }
   };
-
-  // Fungsi untuk menyaring daftar ToDo List berdasarkan kata kunci pencarian
-  // const searchTodos = todos.filter((todo) => {
-  //   return (
-  //     todo.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     todo.tipe.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  // });
 
   // Fungsi untuk mengurutkan daftar ToDo List
   const sortedTodos = (todosToSort) => {
@@ -67,122 +60,110 @@ const TodoList = () => {
   };
 
   return (
-    <div className="columns mt-5 is-centered">
-      <div className="column is-half">
-        <h1 className="is-size-3 has-text-weight-bold mb-4 mx-auto">
-          PROJECT CRUD
-        </h1>
-        <Link to={`add`} className="button is-success">
-          Add New
-        </Link>
-        <div className="field mt-3">
-          <label className="label">Search</label>
-          <div className="control">
-            <input
-              type="text"
-              className="input"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search by Title or Type"
-            />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Filter By</label>
-          <div className="control">
-            <div className="select">
-              <select
-                value={filterBy}
-                onChange={(e) => setFilterBy(e.target.value)}
-              >
-                <option value="all">All</option>
-                <option value="title">Title</option>
-                <option value="description">Description</option>
-                <option value="tipe">Tipe</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Sort Order</label>
-          <div className="control">
-            <div className="select">
-              <select
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
-              >
-                <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <h2 className="is-size-4">Todos</h2>
-        <table className="table is-striped is-fullwidth">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Tipe</th>
-              <th>Created At</th>
-              <th>Updated At</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {searchTerm
-              ? sortedTodos(filteredTodos()).map((todo, index) => (
-                  <tr key={todo.id}>
-                    <td>{index + 1}</td>
-                    <td>{todo.title}</td>
-                    <td>{todo.description}</td>
-                    <td>{todo.tipe}</td>
-                    <td>{todo.createdAt}</td>
-                    <td>{todo.updatedAt}</td>
-                    <td>
-                      <Link
-                        to={`edit/${todo.id}`}
-                        className="button is-small is-info mr-2"
-                      >
-                        Edit
-                      </Link>
-                      <button
-                        onClick={() => deleteTodo(todo.id)}
-                        className="button is-small is-danger"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              : sortedTodos(todos).map((todo, index) => (
-                  <tr key={todo.id}>
-                    <td>{index + 1}</td>
-                    <td>{todo.title}</td>
-                    <td>{todo.description}</td>
-                    <td>{todo.tipe}</td>
-                    <td>{todo.createdAt}</td>
-                    <td>{todo.updatedAt}</td>
-                    <td>
-                      <Link
-                        to={`edit/${todo.id}`}
-                        className="button is-small is-info mr-2"
-                      >
-                        Edit
-                      </Link>
-                      <button
-                        onClick={() => deleteTodo(todo.id)}
-                        className="button is-small is-danger"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-          </tbody>
-        </table>
+    <div className="container">
+      <h1 className="page-title">PROJECT CRUD TODO LIST</h1>
+      <Link to={`add`} className="btn btn-success">
+        Add New
+      </Link>
+      <div className="form-group">
+        <label className="form-label">Search</label>
+        <input
+          type="text"
+          className="form-control"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search by Title or Type"
+        />
       </div>
+      <div className="form-group">
+        <label className="form-label">Filter By</label>
+        <select
+          className="form-select"
+          value={filterBy}
+          onChange={(e) => setFilterBy(e.target.value)}
+        >
+          <option value="all">All</option>
+          <option value="title">Title</option>
+          <option value="description">Description</option>
+          <option value="tipe">Tipe</option>
+        </select>
+      </div>
+      <div className="form-group">
+        <label className="form-label">Sort Order</label>
+        <select
+          className="form-select"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+      <h2 className="section-title">Todos</h2>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Tipe</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {searchTerm
+            ? sortedTodos(filteredTodos()).map((todo, index) => (
+                <tr key={todo.id}>
+                  <td>{index + 1}</td>
+                  <td>{todo.title}</td>
+                  <td>{todo.description}</td>
+                  <td>{todo.tipe}</td>
+                  <td>{todo.createdAt}</td>
+                  <td>{todo.updatedAt}</td>
+                  <td>
+                    <Link
+                      to={`edit/${todo.id}`}
+                      className="btn btn-info"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => deleteTodo(todo.id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            : sortedTodos(todos).map((todo, index) => (
+                <tr key={todo.id}>
+                  <td>{index + 1}</td>
+                  <td>{todo.title}</td>
+                  <td>{todo.description}</td>
+                  <td>{todo.tipe}</td>
+                  <td>{todo.createdAt}</td>
+                  <td>{todo.updatedAt}</td>
+                  <td>
+                    <Link
+                      to={`edit/${todo.id}`}
+                      className="btn btn-info"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => deleteTodo(todo.id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+        </tbody>
+      </table>
     </div>
   );
 };

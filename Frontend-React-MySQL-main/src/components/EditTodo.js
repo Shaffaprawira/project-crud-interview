@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import "./EditTodo.css";
 
 const EditTodo = () => {
   const [title, setTitle] = useState("");
@@ -35,56 +36,53 @@ const EditTodo = () => {
   };
 
   return (
-    <div className="columns mt-5 is-centered">
-      <div className="column is-half">
-        <form onSubmit={updateTodo}>
-          <div className="field">
-            <label className="label">Title</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Title"
-              />
-            </div>
+    <div class="container">
+      <form onSubmit={updateTodo}>
+        <div class="form-group">
+          <label class="label">Title</label>
+          <div class="control">
+            <input
+              type="text"
+              class="input"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Title"
+            />
           </div>
-          <div className="field">
-            <label className="label">Description</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="Description"
-              />
-            </div>
+        </div>
+        <div class="form-group">
+          <label class="label">Description</label>
+          <div class="control">
+            <input
+              type="text"
+              class="input"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Description"
+            />
           </div>
-          <div className="field">
-            <label className="label">Tipe</label>
-            <div className="control">
-              <div className="select is-fullwidth">
-                <select
-                  value={tipe}
-                  onChange={(e) => setTipe(e.target.value)}
-                >
-                  <option value="Urgent">Urgent</option>
-                  <option value="Not Urgent">Not Urgent</option>
-                  <option value="Important">Important</option>
-                  <option value="Not Important">Not Important</option>
-                </select>
-              </div>
-            </div>
+        </div>
+        <div class="form-group">
+          <label class="label">Tipe</label>
+          <div class="control">
+            <select
+              className="select-label"
+              value={tipe}
+              onChange={(e) => setTipe(e.target.value)}
+            >
+              <option value="Urgent">Urgent</option>
+              <option value="Not Urgent">Not Urgent</option>
+              <option value="Important">Important</option>
+              <option value="Not Important">Not Important</option>
+            </select>
           </div>
-          <div className="field">
-            <button type="submit" className="button is-success">
-              Update
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">
+            Update
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
