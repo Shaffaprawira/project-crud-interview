@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./TodoList.css"; // File CSS custom
+import "./TodoList.css";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -123,10 +123,7 @@ const TodoList = () => {
                   <td>{todo.createdAt}</td>
                   <td>{todo.updatedAt}</td>
                   <td>
-                    <Link
-                      to={`edit/${todo.id}`}
-                      className="btn btn-info"
-                    >
+                    <Link to={`edit/${todo.id}`} className="btn btn-info">
                       Edit
                     </Link>
                     <button
@@ -147,10 +144,7 @@ const TodoList = () => {
                   <td>{todo.createdAt}</td>
                   <td>{todo.updatedAt}</td>
                   <td>
-                    <Link
-                      to={`edit/${todo.id}`}
-                      className="btn btn-info"
-                    >
+                    <Link to={`edit/${todo.id}`} className="btn btn-info">
                       Edit
                     </Link>
                     <button

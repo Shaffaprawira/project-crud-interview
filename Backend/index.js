@@ -1,11 +1,3 @@
-import moment from "moment-timezone";
-// Set the time zone to Asia/Jakarta (UTC+07:00)
-// process.env.TZ = 'Asia/Jakarta';
-// moment().tz("Asia/Jakarta").format();
-
-// Set the time zone to Asia/Jakarta
-const jakartaTime = moment.tz('Asia/Jakarta');
-
 import express from "express";
 import cors from "cors";
 import TodoRoute from "./routes/TodoRoute.js";

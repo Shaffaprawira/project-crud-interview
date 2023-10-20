@@ -51,6 +51,8 @@ To set up the backend part of this application:
 4. After the configuration is complete, run `npm start` to start the Node.js server for the backend.
 5. The backend server should be accessible at `http://localhost:5000`.
 
+**Note:** The project operates in a timezone that is set to be 7 hours behind the Asia/Jakarta timezone (GMT+7).
+
 ## License
 
 This application is licensed under the [MIT License](LICENSE).
