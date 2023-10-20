@@ -29,6 +29,7 @@ Additional Features:
 
 - The application follows the CRUD (Create, Read, Update, Delete) principles for todo management.
 - For the search feature, users can search for todos by title or todo type without using external libraries or tools.
+- The project operates in a timezone that is set to be 7 hours behind the Asia/Jakarta timezone (GMT+7).
 
 ## Installation
 
@@ -50,8 +51,6 @@ To set up the backend part of this application:
 3. Configure your MySQL database by updating the connection details in the `.env` file.
 4. After the configuration is complete, run `npm start` to start the Node.js server for the backend.
 5. The backend server should be accessible at `http://localhost:5000`.
-
-**Note:** The project operates in a timezone that is set to be 7 hours behind the Asia/Jakarta timezone (GMT+7).
 
 ## License
 
