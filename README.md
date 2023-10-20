@@ -37,20 +37,32 @@ Additional Features:
 
 To set up the frontend part of this application:
 
-1. Open a terminal and navigate to the project's frontend directory.
-2. Run `npm install` to install the required frontend dependencies.
-3. After the installation is complete, run `npm start` to start the development server for the frontend.
-4. The frontend application should be accessible at `http://localhost:3000` in your web browser.
+1. Clone this repository using `git clone https://github.com/Shaffaprawira/project-crud-interview.git`.
+2. Open a terminal and navigate to the project's frontend directory.
+3. Run `npm install` to install the required frontend dependencies.
+4. After the installation is complete, run `npm start` to start the development server for the frontend.
+5. The frontend application should be accessible at `http://localhost:3000` in your web browser.
 
 ### Backend (Node JS / Express JS)
 
 To set up the backend part of this application:
 
-1. Open a terminal and navigate to the project's backend directory.
-2. Run `npm install` to install the required backend dependencies.
-3. Configure your MySQL database by updating the connection details in the `.env` file.
-4. After the configuration is complete, run `npm start` to start the Node.js server for the backend.
-5. The backend server should be accessible at `http://localhost:5000`.
+1. Clone this repository using `git clone https://github.com/Shaffaprawira/project-crud-interview.git`.
+2. Open a terminal and navigate to the project's backend directory.
+3. Run `npm install` to install the required backend dependencies.
+4. Create a `.env` file in the backend directory to configure your MySQL database. Include the following variables:
+
+   ```env
+   DB_HOST=your_database_host
+   DB_USER=your_database_user
+   DB_PASSWORD=your_database_password
+   DB_NAME=crud_db
+   DB_DIALECT=mysql
+
+   ```
+
+5. After the configuration is complete, run `npm start` to start the Node.js server for the backend.
+6. The backend server should be accessible at `http://localhost:5000`.
 
 ## License
 
